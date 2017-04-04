@@ -43,7 +43,7 @@ public class Hand_Test {
 	
 	
 	@Test
-	public void TestRodyalFlush() {
+	public void TestRoyalFlush() {
 		Hand h = new Hand();
  
 		
@@ -66,7 +66,7 @@ public class Hand_Test {
 	}
 	
 	@Test
-	public void TestRodyalFlush2() {
+	public void TestRoyalFlush2() {
 		Hand h = new Hand();
  
 		
