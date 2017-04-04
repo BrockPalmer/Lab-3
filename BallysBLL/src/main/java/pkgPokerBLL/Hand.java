@@ -19,6 +19,8 @@ public class Hand {
 	private boolean bIsScored;
 	private HandScore HS;
 	private ArrayList<Card> CardsInHand = new ArrayList<Card>();
+	static boolean specials = false;
+	static int scount = 0;
 
 	public Hand() {
 
@@ -45,7 +47,7 @@ public class Hand {
 		Hand h = null;
 
 		ArrayList<Hand> ExplodedHands = ExplodeHands(this);
-
+		
 		for (Hand hand : ExplodedHands) {
 			hand = Hand.EvaluateHand(hand);
 		}
@@ -114,6 +116,17 @@ public class Hand {
 		}
 		return h;
 	}
+	
+	public static void countJokers(ArrayList<Card> cards, Card c){
+		for(Card card: cards){
+			if ((card.geteRank() == eRank.JOKER) || (card.isWild() == true))
+				scount++;			
+		}
+		if(scount > 0)
+			specials = true;
+	}
+	
+	
 
 	public static boolean isStraight(ArrayList<Card> cards, Card c) {
 		boolean isStraight = false;
