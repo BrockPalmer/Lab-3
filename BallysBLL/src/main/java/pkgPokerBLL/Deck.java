@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.UUID;
 
+import pkgException.DeckException;
 import pkgPokerEnum.eRank;
 import pkgPokerEnum.eSuit;
 
@@ -43,8 +44,12 @@ public class Deck {
 		Collections.shuffle(DeckCards);
 	}
 
-	public Card DrawCard() {
+	public Card DrawCard() throws DeckException {
 
-		return DeckCards.remove(0);
+		try {
+			return DeckCards.remove(0);
+		} catch (Exception e) {
+			throw new DeckException("Deck is empty");
+		}
 	}
 }
