@@ -78,7 +78,8 @@ public class Hand {
 		int i = scount;
 		while (i > 0) {
 			h.getCardsInHand().remove(0);
-		}
+			i = i - 1;
+			}
 		// builds a new ArrayList of hands based on number of free spaces
 		if (scount == 1) {
 			for (eSuit suit : eSuit.values()) {
