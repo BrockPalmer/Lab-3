@@ -3,7 +3,7 @@ package pkgPokerEnum;
 public enum eHandStrength {
 
 	
-	FiveOfAKind(110, "isHandFiveOfAKind"){
+	FiveOfAKind(110, "isFiveOfAKind"){
 		public String toString(){
 			return "Five of a Kind";
 		}

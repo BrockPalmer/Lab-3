@@ -79,14 +79,16 @@ public class Hand {
 		while (i > 0) {
 			h.getCardsInHand().remove(0);
 			i = i - 1;
-			}
+		}
 		// builds a new ArrayList of hands based on number of free spaces
 		if (scount == 1) {
 			for (eSuit suit : eSuit.values()) {
 				for (eRank rank : eRank.values()) {
-					h.getCardsInHand().add(new Card(rank, suit, 0));
-					ReturnHands.add(h);
-					h.getCardsInHand().remove(4);
+					if ((suit != eSuit.JOKER) && (rank != eRank.JOKER)) {
+						h.getCardsInHand().add(new Card(rank, suit, 0));
+						ReturnHands.add(h);
+						h.getCardsInHand().remove(4);
+					}
 				}
 			}
 		}
@@ -95,11 +97,14 @@ public class Hand {
 				for (eRank rank : eRank.values()) {
 					for (eSuit suit1 : eSuit.values()) {
 						for (eRank rank1 : eRank.values()) {
-							h.getCardsInHand().add(new Card(rank1, suit1, 0));
-							h.getCardsInHand().add(new Card(rank, suit, 1));
-							ReturnHands.add(h);
-							h.getCardsInHand().remove(4);
-							h.getCardsInHand().remove(3);
+							if ((suit != eSuit.JOKER) && (rank != eRank.JOKER) && (suit1 != eSuit.JOKER)
+									&& (rank1 != eRank.JOKER)) {
+								h.getCardsInHand().add(new Card(rank1, suit1, 0));
+								h.getCardsInHand().add(new Card(rank, suit, 1));
+								ReturnHands.add(h);
+								h.getCardsInHand().remove(4);
+								h.getCardsInHand().remove(3);
+							}
 						}
 					}
 				}
@@ -113,13 +118,17 @@ public class Hand {
 						for (eRank rank1 : eRank.values()) {
 							for (eSuit suit2 : eSuit.values()) {
 								for (eRank rank2 : eRank.values()) {
-									h.getCardsInHand().add(new Card(rank2, suit2, 0));
-									h.getCardsInHand().add(new Card(rank1, suit1, 1));
-									h.getCardsInHand().add(new Card(rank, suit, 2));
-									ReturnHands.add(h);
-									h.getCardsInHand().remove(4);
-									h.getCardsInHand().remove(3);
-									h.getCardsInHand().remove(2);
+									if ((suit != eSuit.JOKER) && (rank != eRank.JOKER) && (suit1 != eSuit.JOKER)
+											&& (rank1 != eRank.JOKER) && (suit2 != eSuit.JOKER)
+											&& (rank2 != eRank.JOKER)) {
+										h.getCardsInHand().add(new Card(rank2, suit2, 0));
+										h.getCardsInHand().add(new Card(rank1, suit1, 1));
+										h.getCardsInHand().add(new Card(rank, suit, 2));
+										ReturnHands.add(h);
+										h.getCardsInHand().remove(4);
+										h.getCardsInHand().remove(3);
+										h.getCardsInHand().remove(2);
+									}
 								}
 							}
 						}
@@ -136,15 +145,20 @@ public class Hand {
 								for (eRank rank2 : eRank.values()) {
 									for (eSuit suit3 : eSuit.values()) {
 										for (eRank rank3 : eRank.values()) {
-											h.getCardsInHand().add(new Card(rank3, suit3, 0));
-											h.getCardsInHand().add(new Card(rank2, suit2, 1));
-											h.getCardsInHand().add(new Card(rank1, suit1, 2));
-											h.getCardsInHand().add(new Card(rank, suit, 2));
-											ReturnHands.add(h);
-											h.getCardsInHand().remove(4);
-											h.getCardsInHand().remove(3);
-											h.getCardsInHand().remove(2);
-											h.getCardsInHand().remove(1);
+											if ((suit != eSuit.JOKER) && (rank != eRank.JOKER) && (suit1 != eSuit.JOKER)
+													&& (rank1 != eRank.JOKER) && (suit2 != eSuit.JOKER)
+													&& (rank2 != eRank.JOKER) && (suit3 != eSuit.JOKER)
+													&& (rank3 != eRank.JOKER)) {
+												h.getCardsInHand().add(new Card(rank3, suit3, 0));
+												h.getCardsInHand().add(new Card(rank2, suit2, 1));
+												h.getCardsInHand().add(new Card(rank1, suit1, 2));
+												h.getCardsInHand().add(new Card(rank, suit, 2));
+												ReturnHands.add(h);
+												h.getCardsInHand().remove(4);
+												h.getCardsInHand().remove(3);
+												h.getCardsInHand().remove(2);
+												h.getCardsInHand().remove(1);
+											}
 										}
 									}
 								}
@@ -165,17 +179,23 @@ public class Hand {
 										for (eRank rank3 : eRank.values()) {
 											for (eSuit suit4 : eSuit.values()) {
 												for (eRank rank4 : eRank.values()) {
-													h.getCardsInHand().add(new Card(rank4, suit4, 0));
-													h.getCardsInHand().add(new Card(rank3, suit3, 1));
-													h.getCardsInHand().add(new Card(rank2, suit2, 2));
-													h.getCardsInHand().add(new Card(rank1, suit1, 3));
-													h.getCardsInHand().add(new Card(rank, suit, 4));
-													ReturnHands.add(h);
-													h.getCardsInHand().remove(4);
-													h.getCardsInHand().remove(3);
-													h.getCardsInHand().remove(2);
-													h.getCardsInHand().remove(1);
-													h.getCardsInHand().remove(0);
+													if ((suit != eSuit.JOKER) && (rank != eRank.JOKER)
+															&& (suit1 != eSuit.JOKER) && (rank1 != eRank.JOKER)
+															&& (suit2 != eSuit.JOKER) && (rank2 != eRank.JOKER)
+															&& (suit3 != eSuit.JOKER) && (rank3 != eRank.JOKER)
+															&& (suit4 != eSuit.JOKER) && (rank4 != eRank.JOKER)) {
+														h.getCardsInHand().add(new Card(rank4, suit4, 0));
+														h.getCardsInHand().add(new Card(rank3, suit3, 1));
+														h.getCardsInHand().add(new Card(rank2, suit2, 2));
+														h.getCardsInHand().add(new Card(rank1, suit1, 3));
+														h.getCardsInHand().add(new Card(rank, suit, 4));
+														ReturnHands.add(h);
+														h.getCardsInHand().remove(4);
+														h.getCardsInHand().remove(3);
+														h.getCardsInHand().remove(2);
+														h.getCardsInHand().remove(1);
+														h.getCardsInHand().remove(0);
+													}
 												}
 											}
 										}
@@ -238,32 +258,35 @@ public class Hand {
 		return h;
 	}
 
-	private static boolean hasFiveCards(ArrayList<Card> c) throws HandException{
-		if(c.size()<5){
-			throw new HandException("Must have five cards in hand!");
-		}
-		else{
-			return true;
-		}
-	}
+	//private static boolean hasFiveCards(ArrayList<Card> c) throws HandException {
+		//if (c.size() < 5) {
+			//throw new HandException("Must have five cards in hand!");
+		//} else {
+			//return true;
+		//}
+	//}
 
-	public static boolean isFiveOfAKind(ArrayList<Card> cards) throws HandException {
-		if(!hasFiveCards(cards)){
-			return false;
-		}
+	public static boolean isFiveOfAKind(Hand h, HandScore hs) throws HandException {
+		//if (!hasFiveCards(cards)) {
+			//return false;
+		//}
 		boolean isFiveOfAKind = false;
-		if ((cards.get(eCardNo.FirstCard.getCardNo()).geteRank()) == (cards.get(eCardNo.FifthCard.getCardNo())
+		if ((h.getCardsInHand().get(eCardNo.FirstCard.getCardNo()).geteRank()) == (h.getCardsInHand().get(eCardNo.FifthCard.getCardNo())
 				.geteRank())) {
+			hs.setHandStrength(eHandStrength.FiveOfAKind);
+			isFiveOfAKind = true;
+			hs.setHiHand(h.getCardsInHand().get(eCardNo.FirstCard.getCardNo()).geteRank());
+			hs.setLoHand(null);
 			isFiveOfAKind = true;
 		}
 		return isFiveOfAKind;
 	}
 
-	public static boolean isStraight(ArrayList<Card> cards, Card c)throws HandException {
-		if(!hasFiveCards(cards)){
-			return false;
-		}
-		
+	public static boolean isStraight(ArrayList<Card> cards, Card c) throws HandException {
+		//if (!hasFiveCards(cards)) {
+			//return false;
+		//}
+
 		boolean isStraight = false;
 		int iStartCard = (Hand.isAce(cards)) ? eCardNo.SecondCard.getCardNo() : eCardNo.FirstCard.getCardNo();
 
@@ -296,10 +319,10 @@ public class Hand {
 		return isStraight;
 	}
 
-	public static boolean isAce(ArrayList<Card> cards)throws HandException {
-		if(!hasFiveCards(cards)){
-			return false;
-		}
+	public static boolean isAce(ArrayList<Card> cards) throws HandException {
+		//if (!hasFiveCards(cards)) {
+			//return false;
+		//}
 		if ((cards.get(eCardNo.FirstCard.getCardNo()).geteRank() == eRank.ACE)
 				&& (cards.get(eCardNo.SecondCard.getCardNo()).geteRank() == eRank.KING)
 				|| (cards.get(eCardNo.SecondCard.getCardNo()).geteRank() == eRank.FIVE)) {
@@ -310,9 +333,9 @@ public class Hand {
 	}
 
 	public static boolean isFlush(ArrayList<Card> cards) throws HandException {
-		if(!hasFiveCards(cards)){
-			return false;
-		}
+		//if (!hasFiveCards(cards)) {
+			//return false;
+		//}
 		boolean isFlush = false;
 
 		int iCount = 0;
@@ -337,9 +360,9 @@ public class Hand {
 	}
 
 	public static boolean isHandRoyalFlush(Hand h, HandScore hs) throws HandException {
-		if(!hasFiveCards(h.getCardsInHand())){
-			return false;
-		}
+		//if (!hasFiveCards(h.getCardsInHand())) {
+			//return false;
+		//}
 
 		boolean isHandRoyalFlush = false;
 		Card c = new Card();
@@ -356,9 +379,9 @@ public class Hand {
 	}
 
 	public static boolean isHandStraightFlush(Hand h, HandScore hs) throws HandException {
-		if(!hasFiveCards(h.getCardsInHand())){
-			return false;
-		}
+		//if (!hasFiveCards(h.getCardsInHand())) {
+			//return false;
+		//}
 
 		boolean isHandStraightFlush = false;
 		Card c = new Card();
@@ -373,11 +396,10 @@ public class Hand {
 
 	}
 
-	
-	public static boolean isHandFourOfAKind(Hand h, HandScore hs)throws HandException {
-		if(!hasFiveCards(h.getCardsInHand())){
-			return false;
-		}
+	public static boolean isHandFourOfAKind(Hand h, HandScore hs) throws HandException {
+		//if (!hasFiveCards(h.getCardsInHand())) {
+			//return false;
+		//}
 
 		boolean isHandFourOfAKind = false;
 
@@ -403,10 +425,10 @@ public class Hand {
 		return isHandFourOfAKind;
 	}
 
-	public static boolean isHandFlush(Hand h, HandScore hs)throws HandException {
-		if(!hasFiveCards(h.getCardsInHand())){
-			return false;
-		}
+	public static boolean isHandFlush(Hand h, HandScore hs) throws HandException {
+		//if (!hasFiveCards(h.getCardsInHand())) {
+			//return false;
+		//}
 
 		boolean bIsFlush = false;
 		if (isFlush(h.getCardsInHand())) {
@@ -425,10 +447,10 @@ public class Hand {
 		return bIsFlush;
 	}
 
-	public static boolean isHandStraight(Hand h, HandScore hs)throws HandException {
-		if(!hasFiveCards(h.getCardsInHand())){
-			return false;
-		}
+	public static boolean isHandStraight(Hand h, HandScore hs) throws HandException {
+		//if (!hasFiveCards(h.getCardsInHand())) {
+			//return false;
+		//}
 
 		boolean bIsStraight = false;
 		Card c = new Card();
@@ -443,9 +465,9 @@ public class Hand {
 	}
 
 	public static boolean isHandThreeOfAKind(Hand h, HandScore hs) throws HandException {
-		if(!hasFiveCards(h.getCardsInHand())){
-			return false;
-		}
+		//if (!hasFiveCards(h.getCardsInHand())) {
+			//return false;
+		//}
 
 		boolean isThreeOfAKind = false;
 		ArrayList<Card> kickers = new ArrayList<Card>();
@@ -481,9 +503,9 @@ public class Hand {
 	}
 
 	public static boolean isHandTwoPair(Hand h, HandScore hs) throws HandException {
-		if(!hasFiveCards(h.getCardsInHand())){
-			return false;
-		}
+		//if (!hasFiveCards(h.getCardsInHand())) {
+			//return false;
+		//}
 
 		boolean isHandTwoPair = false;
 
@@ -526,9 +548,9 @@ public class Hand {
 	}
 
 	public static boolean isHandPair(Hand h, HandScore hs) throws HandException {
-		if(!hasFiveCards(h.getCardsInHand())){
-			return false;
-		}
+	//	if (!hasFiveCards(h.getCardsInHand())) {
+		//	return false;
+		//}
 
 		boolean isHandPair = false;
 
@@ -573,10 +595,10 @@ public class Hand {
 
 	}
 
-	public static boolean isHandHighCard(Hand h, HandScore hs)throws HandException {
-		if(!hasFiveCards(h.getCardsInHand())){
-			return false;
-		}
+	public static boolean isHandHighCard(Hand h, HandScore hs) throws HandException {
+		//if (!hasFiveCards(h.getCardsInHand())) {
+			//return false;
+		//}
 
 		hs.setHandStrength(eHandStrength.HighCard);
 		hs.setHiHand(h.getCardsInHand().get(eCardNo.FirstCard.getCardNo()).geteRank());
@@ -588,10 +610,10 @@ public class Hand {
 		return true;
 	}
 
-	public static boolean isAcesAndEights(Hand h, HandScore hs)throws HandException {
-		if(!hasFiveCards(h.getCardsInHand())){
-			return false;
-		}
+	public static boolean isAcesAndEights(Hand h, HandScore hs) throws HandException {
+		//if (!hasFiveCards(h.getCardsInHand())) {
+			//return false;
+		//}
 
 		boolean isAcesAndEights = false;
 		if (Hand.isHandTwoPair(h, hs) == true) {
@@ -605,10 +627,10 @@ public class Hand {
 		return isAcesAndEights;
 	}
 
-	public static boolean isHandFullHouse(Hand h, HandScore hs)throws HandException {
-		if(!hasFiveCards(h.getCardsInHand())){
-			return false;
-		}
+	public static boolean isHandFullHouse(Hand h, HandScore hs) throws HandException {
+		//if (!hasFiveCards(h.getCardsInHand())) {
+			//return false;
+		//}
 
 		boolean isFullHouse = false;
 
